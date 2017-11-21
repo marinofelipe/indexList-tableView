@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					F49890461DA229C90064F982 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = X9MK4PBNUW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -260,11 +261,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
 				INFOPLIST_FILE = IndexedTableDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.IndexedTableDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marinofelipe.IndexedTableDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -272,11 +274,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X9MK4PBNUW;
 				INFOPLIST_FILE = IndexedTableDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.IndexedTableDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marinofelipe.IndexedTableDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -299,6 +302,7 @@
 				F498905B1DA229C90064F982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

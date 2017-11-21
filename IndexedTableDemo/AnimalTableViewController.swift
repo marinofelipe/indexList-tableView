@@ -9,10 +9,15 @@
 import UIKit
 
 class AnimalTableViewController: UITableViewController {
-    let animals = ["Bear", "Black Swan", "Buffalo", "Camel", "Cockatoo", "Dog", "Donkey", "Emu", "Giraffe", "Greater Rhea", "Hippopotamus", "Horse", "Koala", "Lion", "Llama", "Manatus", "Meerkat", "Panda", "Peacock", "Pig", "Platypus", "Polar Bear", "Rhinoceros", "Seagull", "Tasmania Devil", "Whale", "Whale Shark", "Wombat"]
+    fileprivate let animals = ["Bear", "Black Swan", "Buffalo", "Camel", "Cockatoo", "Dog", "Donkey", "Emu", "Giraffe", "Greater Rhea", "Hippopotamus", "Horse", "Koala", "Lion", "Llama", "Manatus", "Meerkat", "Panda", "Peacock", "Pig", "Platypus", "Polar Bear", "Rhinoceros", "Seagull", "Tasmania Devil", "Whale", "Whale Shark", "Wombat"]
+    
+    fileprivate var animalsDict = [String: [String]]()
+    fileprivate var animalSectionTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        defineSectionTitles()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,18 +31,41 @@ class AnimalTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
+    // MARK: Animal data
+    fileprivate func defineSectionTitles() {
+        var setOfSectionTitles = Set<String>()
+        for animal in animals where animal.count > 0 {
+            if let animalFirstLetter = animal.first {
+                let animalKey = String(animalFirstLetter)
+                setOfSectionTitles.insert(animalKey)
+                
+                if var animalValues = animalsDict[animalKey] {
+                    animalValues.append(animal)
+                    animalsDict[animalKey] = animalValues
+                } else {
+                    animalsDict[animalKey] = [animal]
+                }
+            }
+        }
+        animalSectionTitles = setOfSectionTitles.sorted(by: { $0 < $1 })
+    }
+}
+
+// MARK: - Table view data source
+extension AnimalTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return 1
+        return animalSectionTitles.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        return animals.count
+        let animalKey = animalSectionTitles[section]
+        guard let animalValues = animalsDict[animalKey] else {
+            return 0
+        }
+        
+        return animalValues.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -52,6 +80,12 @@ class AnimalTableViewController: UITableViewController {
         
         return cell
     }
+}
 
-
+// MARK: - Table view delegate
+extension AnimalTableViewController {
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return animalSectionTitles[section]
+    }
 }

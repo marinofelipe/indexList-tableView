@@ -1,4 +1,4 @@
-# Indexed tableViews
+# Indexed Table Views
 
 - Table view with a large amount of data
 - Ordered by sections and with a index list to easily access each section

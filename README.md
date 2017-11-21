@@ -9,4 +9,5 @@
 
 ### *Important*
 Content based on *Intermediate iOS 10 Programming with Swift* from *AppCoda*.
-Some improvements and changes made by my own.
+<br />Some improvements and changes made by my own.
+<br />Updated to swift 4 and Xcode 9

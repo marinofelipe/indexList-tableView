@@ -4,7 +4,8 @@
 - Ordered by sections and with a index list to easily access each section
 
 ### *Features*
-Shows how to handle tables with many sections and data adding indexes
+- Shows how to handle tables with many sections and data adding indexes
+- Updated to swift 4 and Xcode 9
 
 ### *Important*
-This is a sample of adaptive UI layout based on the *Intermediate iOS 10 Programming with Swift* from *AppCoda*.
+Content based on *Intermediate iOS 10 Programming with Swift* from *AppCoda*.

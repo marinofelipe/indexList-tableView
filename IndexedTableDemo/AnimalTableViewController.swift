@@ -17,7 +17,7 @@ class AnimalTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        defineSectionTitles()
+        createDictAndSectionTitles()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,7 +32,7 @@ class AnimalTableViewController: UITableViewController {
     }
     
     // MARK: Animal data
-    fileprivate func defineSectionTitles() {
+    fileprivate func createDictAndSectionTitles() {
         var setOfSectionTitles = Set<String>()
         for animal in animals where animal.count > 0 {
             if let animalFirstLetter = animal.first {
@@ -55,7 +55,7 @@ class AnimalTableViewController: UITableViewController {
 extension AnimalTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return animalSectionTitles.count
+        return animalsDict.keys.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,22 +63,27 @@ extension AnimalTableViewController {
         guard let animalValues = animalsDict[animalKey] else {
             return 0
         }
-        
         return animalValues.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        // Configure the cell...
-        cell.textLabel?.text = animals[indexPath.row]
-        
-        // Convert the animal name to lower case and
-        // then replace all occurences of a space with an underscore
-        let imageFileName = animals[indexPath.row].lowercased().replacingOccurrences(of: " ", with: "_")
-        cell.imageView?.image = UIImage(named: imageFileName)
+        let animalKey = animalSectionTitles[indexPath.section]
+        if let animalValues = animalsDict[animalKey] {
+            cell.textLabel?.text = animalValues[indexPath.row]
+            
+            // Convert the animal name to lower case and
+            // then replace all occurences of a space with an underscore
+            let imageFileName = animalValues[indexPath.row].lowercased().replacingOccurrences(of: " ", with: "_")
+            cell.imageView?.image = UIImage(named: imageFileName)
+        }
         
         return cell
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return animalSectionTitles
     }
 }
 

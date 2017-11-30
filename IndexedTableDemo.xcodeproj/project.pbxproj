@@ -55,11 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				F498904A1DA229C90064F982 /* AppDelegate.swift */,
+				F498905C1DA22A830064F982 /* AnimalTableViewController.swift */,
 				F498904E1DA229C90064F982 /* Main.storyboard */,
 				F49890511DA229C90064F982 /* Assets.xcassets */,
 				F49890531DA229C90064F982 /* LaunchScreen.storyboard */,
 				F49890561DA229C90064F982 /* Info.plist */,
-				F498905C1DA22A830064F982 /* AnimalTableViewController.swift */,
 			);
 			path = IndexedTableDemo;
 			sourceTree = "<group>";

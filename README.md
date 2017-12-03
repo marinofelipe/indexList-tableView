@@ -5,7 +5,6 @@
 
 ### *Features*
 - Shows how to handle tables with many sections and data adding indexes
-- Updated to swift 4 and Xcode 9
 
 ### *Important*
 Content based on *Intermediate iOS 10 Programming with Swift* from *AppCoda*.
